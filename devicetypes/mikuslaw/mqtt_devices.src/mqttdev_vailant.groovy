@@ -1,5 +1,5 @@
 /**
- *  MqttDeviceTemperatureMeasurement
+ *  mqttdev_vailant
  *
  *  Copyright 2020 Jerzy Mikucki
  *
@@ -15,7 +15,7 @@
 import groovy.json.JsonSlurper
 
 metadata {
-	definition (name: "MqttDeviceTemperatureMeasurement", namespace: "mikuslaw", author: "Jerzy Mikucki", cstHandler: true) {
+	definition (name: "mqttdev_vailant", namespace: "mikuslaw", author: "Jerzy Mikucki", cstHandler: true) {
 		capability "Temperature Measurement"
         capability "Notification"
         capability "Refresh"
@@ -70,7 +70,6 @@ def updated() {
 }
 
 def updateValue(numberParam) {
-	log.debug "Update temperature to ${numberParam}"
 	sendEvent(name: "temperature", value: numberParam)
 }
 
@@ -80,7 +79,9 @@ def processMqttMessage(message) {
 	def value = null
 	log.debug "Received Mqtt on ${message.topic}: ${message.message}"
     try {
-    	value = message.message.toInteger()
+    	def json = new JsonSlurper().parseText(message.message)
+        // Take first value in the topic
+    	value = json["0"]["value"]
     } catch(Exception ex) {
     	log.debug "Couldn't parse value"
     } finally {

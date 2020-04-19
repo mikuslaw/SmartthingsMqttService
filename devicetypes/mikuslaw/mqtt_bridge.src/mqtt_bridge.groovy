@@ -1,5 +1,5 @@
 /**
- *  MqttConnectionDevice
+ *  mqtt_bridge
  *
  *  Copyright 2020 Jerzy Mikucki
  *
@@ -13,7 +13,7 @@
  *  for the specific language governing permissions and limitations under the License.
  */
 metadata {
-	definition (name: "MqttConnectionDevice", namespace: "mikuslaw", author: "Jerzy Mikucki", cstHandler: true) {
+	definition (name: "mqtt_bridge", namespace: "mikuslaw", author: "Jerzy Mikucki", cstHandler: true) {
 		capability "Notification"
         capability "Refresh"
         
