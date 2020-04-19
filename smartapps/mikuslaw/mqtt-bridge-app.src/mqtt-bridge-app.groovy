@@ -1,5 +1,5 @@
 /**
- *  mqtt_bridge_app
+ *  mqtt bridge app
  *
  *  Copyright 2020 Jerzy Mikucki
  *
@@ -17,7 +17,7 @@
 import groovy.json.JsonSlurper
 
 definition(
-    name: "mqtt_bridge_app",
+    name: "mqtt bridge app",
     namespace: "mikuslaw",
     author: "Jerzy Mikucki",
     description: "Mqtt Bridge App",

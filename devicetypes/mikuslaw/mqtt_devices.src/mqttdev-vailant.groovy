@@ -1,5 +1,5 @@
 /**
- *  mqttdev_vailant
+ *  mqttdev vailant
  *
  *  Copyright 2020 Jerzy Mikucki
  *
@@ -15,7 +15,7 @@
 import groovy.json.JsonSlurper
 
 metadata {
-	definition (name: "mqttdev_vailant", namespace: "mikuslaw", author: "Jerzy Mikucki", cstHandler: true) {
+	definition (name: "mqttdev vailant", namespace: "mikuslaw", author: "Jerzy Mikucki", cstHandler: true) {
 		capability "Temperature Measurement"
         capability "Notification"
         capability "Refresh"
