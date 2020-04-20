@@ -36,7 +36,7 @@ class MqttSmartthings():
         def on_message(self, client, userdata, msg):
             try:
                 print("On message({}{}) on {}: {}".format("R" if msg.retain==1 else "", msg.qos, msg.topic, msg.payload))
-                command = {"command": "publish", "message": {"topic": msg.topic, "message": msg.payload, "qos": msg.qos, "retained": True if msg.retain else False}}
+                command = {"command": "publish", "message": {"topic": msg.topic, "message": msg.payload.decode("ascii"), "qos": msg.qos, "retained": True if msg.retain else False}}
                 self.queue.put(command)
                 self.cond.acquire()
                 self.cond.notify_all()
