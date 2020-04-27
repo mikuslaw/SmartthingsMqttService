@@ -41,12 +41,13 @@ metadata {
 
 def refresh() {
 	log.debug "Executing refresh"
-    //updateDeviceNetworkID()
+    updateDeviceNetworkID()
     poll()
 }
 
 def updated() {
 	log.debug "${device.name} updated"
+    updateDeviceNetworkID()
 }
 
 def updateDeviceNetworkID() {
