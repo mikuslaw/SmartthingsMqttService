@@ -88,9 +88,9 @@ def pollHandler(evt) {
 def notifySubscriptionsHandler(evt) {	
     def json = new JsonSlurper().parseText(evt.data)
     
-    if(!state.containsKey("subscriptions")) {
-    	state.subscriptions = [:]
-    }
+    //if(!state.containsKey("subscriptions")) {
+    //	state.subscriptions = [:]
+    //}
 	def subscriptions_map = state.subscriptions
     subscriptions_map.put(json.id, json.topics)
     state.subscriptions = subscriptions_map
